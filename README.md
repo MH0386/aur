@@ -1,2 +1,2 @@
-# aur
+# AUR
 My AUR
