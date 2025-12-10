@@ -1,4 +1,4 @@
-# Maintainer: Danilo Luvizotto <danilo@luvizotto.eu>
+# Maintainer: Mohamed Hisham Abdelzaher <mohamed.hisham.abdelzaher@gmail.com>
 
 pkgname=cagent-bin
 pkgdesc="Docker cagent - Agent Builder and Runtime (prebuilt binary)"
