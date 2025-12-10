@@ -41,7 +41,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
-      - name: Install go-task
+      - name: Install Bumper
         uses: jaxxstorm/action-install-gh-release@v1.10.0
         with:
           repo: bcyran/bumper
