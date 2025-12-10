@@ -44,4 +44,5 @@ jobs:
         with:
           path: packages/${{ matrix.package }}
           srcinfo: true
+          updpkgsums: true
           aur: true
