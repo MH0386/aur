@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+      - run: pwd
       - name: Install dependencies
         run: pacman -Syu --needed --noconfirm pacman-contrib namcap git devtools
       - name: Create build user and setup permissions
