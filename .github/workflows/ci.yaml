@@ -11,6 +11,7 @@ jobs:
     environment: AUR
     permissions:
       contents: write
+    container: archlinux:multilib-devel
     steps:
       - uses: actions/checkout@v5
       - name: Install Bumper
