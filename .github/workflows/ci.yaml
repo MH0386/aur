@@ -11,7 +11,7 @@ jobs:
     environment: AUR
     permissions:
       contents: write
-    container: archlinux:multilib-devel
+    container: cachyos/cachyos:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
