@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+    branches: main
+  pull_request:
+  workflow_dispatch:
+jobs:
+  packages-list:
+    name: Packages List
+    runs-on: ubuntu-latest
+    outputs:
+      folders: ${{ steps.packages.outputs.folders }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Get Packages List
+        id: packages
+        uses: philips-labs/list-folders-action@v2.1
+        with:
+          path: ./packages
+  aur:
+    name: ${{ matrix.package }}
+    needs: [packages-list]
+    runs-on: ubuntu-latest
+    environment: ${{ matrix.package }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.package }}
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.packages-list.outputs.folders) }}
+    steps:
+      - name: Echo
+        run: echo ${{ matrix.package }}
