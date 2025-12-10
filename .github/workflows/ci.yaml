@@ -41,5 +41,6 @@ jobs:
       matrix:
         package: ${{ fromJson(needs.packages-list.outputs.packages) }}
     steps:
+      - uses: actions/checkout@v5
       - name: Echo
         run: echo ${{ matrix.package }}
