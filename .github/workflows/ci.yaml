@@ -16,7 +16,7 @@ jobs:
         id: packages
         uses: Drafteame/list-folders-action@main
         with:
-          paths: ./packages
+          paths: packages
       - name: Output total sub-folders
         run: >
           echo "Total sub-folders: ${{ steps.packages.outputs.total }}"
@@ -39,7 +39,7 @@ jobs:
         working-directory: ${{ matrix.package }}
     strategy:
       matrix:
-        package: ${{ fromJson(needs.packages-list.outputs.folders) }}
+        package: ${{ needs.packages-list.outputs.folders }}
     steps:
       - name: Echo
         run: echo ${{ matrix.package }}
