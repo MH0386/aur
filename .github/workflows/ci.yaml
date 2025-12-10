@@ -34,9 +34,9 @@ jobs:
     needs: [packages-list]
     runs-on: ubuntu-latest
     environment: ${{ matrix.package }}
-    defaults:
-      run:
-        working-directory: packages/${{ matrix.package }}
+    # defaults:
+    #   run:
+    #     working-directory: packages/${{ matrix.package }}
     strategy:
       matrix:
         package: ${{ fromJson(needs.packages-list.outputs.packages) }}
@@ -45,5 +45,5 @@ jobs:
       - name: Validate package
         uses: heyhusen/archlinux-package-action@v2.4.0
         with:
-          path: .
+          path: packages/${{ matrix.package }}
           srcinfo: true
