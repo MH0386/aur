@@ -14,7 +14,7 @@ jobs:
     container: archlinux:multilib-devel
     steps:
       - name: Install dependencies
-        run: pacman -Syu --noconfirm base-devel jq git
+        run: pacman -Syu --needed --noconfirm pacman-contrib namcap git devtools
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Install Bumper
