@@ -15,7 +15,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: pacman -Syu --noconfirm base-devel jq git
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v5
       - name: Install Bumper
         uses: jaxxstorm/action-install-gh-release@v1.10.0
         with:
