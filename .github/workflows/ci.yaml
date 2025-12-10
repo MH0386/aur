@@ -41,13 +41,11 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
-      - name: Validate package
-        uses: heyhusen/archlinux-package-action@v2.4.0
+      - name: Install go-task
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
         with:
-          path: packages/${{ matrix.package }}
-          srcinfo: true
-          updpkgsums: true
-          aur: true
+          repo: bcyran/bumper
+          cache: enable
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
