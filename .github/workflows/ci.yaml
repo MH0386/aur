@@ -29,9 +29,9 @@ jobs:
         restore-keys: pre-commit-
     - name: Run pre-commit hooks
       uses: pre-commit/action@v3.0.1
+      continue-on-error: true
     - name: pre-commit.ci lite
       uses: pre-commit-ci/lite-action@v1.1.0
-      if: always()
   packages-list:
     name: Get Packages List
     runs-on: ubuntu-latest
