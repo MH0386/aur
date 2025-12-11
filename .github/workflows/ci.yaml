@@ -86,7 +86,7 @@ jobs:
           file_pattern: packages/${{ matrix.package }}/*
           commit_message: 'ci: Update ${{ matrix.package }} package files'
       - name: Publish package
-        uses: KSXGitHub/github-actions-deploy-aur@065b6056b25bdd43830d5a3f01899d0ff7169819  # v2.6.0
+        uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
         with:
           pkgname: ${{ matrix.package }}
           pkgbuild: packages/${{ matrix.package }}/PKGBUILD
