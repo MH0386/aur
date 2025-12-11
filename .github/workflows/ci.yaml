@@ -82,13 +82,11 @@ jobs:
           aur: true
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
-        id: commit
         with:
           file_pattern: packages/${{ matrix.package }}/*
           commit_message: 'ci: Update ${{ matrix.package }} package files'
       - name: Publish package
         uses: KSXGitHub/github-actions-deploy-aur@065b6056b25bdd43830d5a3f01899d0ff7169819  # v2.6.0
-        if: steps.commit.outputs.changes_detected == 'true'
         with:
           pkgname: ${{ matrix.package }}
           pkgbuild: packages/${{ matrix.package }}/PKGBUILD
