@@ -22,7 +22,7 @@ jobs:
       YAMLFIX_SEQUENCE_STYLE: block_style
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.0.0
+        uses: actions/checkout@v4.3.1
       - name: Setup Python
         uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c  # v4.9.1
         with:
