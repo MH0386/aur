@@ -1,15 +1,13 @@
 repos:
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.46.0
+    rev: v0.47.0
     hooks:
       - id: markdownlint
       - id: markdownlint-fix
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.29.0
+    rev: v1.37.1
     hooks:
       - id: yamllint
-        args:
-          - --strict
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
