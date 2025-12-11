@@ -9,6 +9,8 @@ permissions:
   pull-requests: write
   checks: write
   deployments: write
+  security-events: write
+  actions: read
 jobs:
   pre-commit:
     name: pre-commit
