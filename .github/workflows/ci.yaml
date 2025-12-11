@@ -10,12 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     environment: pre-commit
     steps:
-    - uses: actions/checkout@v4.0.0
-    - uses: actions/setup-python@v4.0.0
+    - name: Checkout repository
+      uses: actions/checkout@v4.0.0
+    - name: Setup Python
+      uses: actions/setup-python@v4.0.0
       with:
         python-version: 3.x
-    - uses: pre-commit/action@v3.0.1
-    - uses: pre-commit-ci/lite-action@v1.1.0
+    - name: Run pre-commit hooks
+      uses: pre-commit/action@v3.0.1
+    - name: pre-commit.ci lite
+      uses: pre-commit-ci/lite-action@v1.1.0
       if: always()
   packages-list:
     name: Get Packages List
