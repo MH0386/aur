@@ -94,3 +94,5 @@ jobs:
           commit_email: ${{ env.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           commit_message: Update ${{ matrix.package }}
+          updpkgsums: true
+          test: true
