@@ -92,6 +92,6 @@ jobs:
         with:
           pkgname: ${{ matrix.package }}
           pkgbuild: packages/${{ matrix.package }}/PKGBUILD
-          commit_username: ${{ vars.AUR_USERNAME }}
-          commit_email: ${{ vars.AUR_EMAIL }}
+          commit_username: ${{ env.AUR_USERNAME }}
+          commit_email: ${{ env.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
