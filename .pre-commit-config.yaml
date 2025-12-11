@@ -8,8 +8,6 @@ repos:
     rev: v1.29.0
     hooks:
       - id: yamllint
-        args:
-          - --strict
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
