@@ -41,6 +41,7 @@ jobs:
       contents: write
       pull-requests: write
       checks: write
+      deployments: write
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
