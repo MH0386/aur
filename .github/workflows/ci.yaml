@@ -39,6 +39,8 @@ jobs:
         package: ${{ fromJson(needs.packages-list.outputs.packages) }}
     permissions:
       contents: write
+      pull-requests: write
+      checks: write
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
@@ -50,7 +52,7 @@ jobs:
           files: packages/${{ matrix.package }}/**
       - name: Validate and update ${{ matrix.package }} package
         uses: heyhusen/archlinux-package-action@v2.4.0
-        if: steps.changed.outputs.only_changed == true
+        if: steps.changed.outputs.any_changed == 'true'
         with:
           path: packages/${{ matrix.package }}
           pkgrel: ${{ github.actor == 'renovate[bot]' && '1' || '' }}
