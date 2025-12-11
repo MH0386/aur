@@ -14,6 +14,9 @@ jobs:
     name: pre-commit
     runs-on: ubuntu-latest
     environment: pre-commit
+    env:
+      YAMLFIX_EXPLICIT_START: false
+      YAMLFIX_SEQUENCE_STYLE: block_style
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4.0.0
