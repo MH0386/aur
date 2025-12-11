@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: main
+    branches: [main]
   pull_request:
   workflow_dispatch:
 jobs:
@@ -11,23 +11,18 @@ jobs:
     outputs:
       packages: ${{ steps.packages.outputs.folders_no_base_path }}
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
       - name: Get Packages List
         id: packages
-        uses: Drafteame/list-folders-action@main
+        uses: Drafteame/list-folders-action@1.1.2
         with:
           paths: packages
-      - name: Output total sub-folders
-        run: >
+      - name: Output
+        run: |
           echo "Total sub-folders: ${{ steps.packages.outputs.total }}"
-      - name: Output folders with base path
-        run: >
           echo "Folders with base path: ${{ steps.packages.outputs.folders }}"
-      - name: Output folders without base path
-        run: >
           echo "Folders without base path: ${{ steps.packages.outputs.folders_no_base_path }}"
-      - name: Output folders by path
-        run: >
           echo "Folders by path: ${{ steps.packages.outputs.folders_by_path }}"
   aur:
     name: ${{ matrix.package }}
