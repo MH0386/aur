@@ -28,7 +28,7 @@ jobs:
         python-version: 3.x
     - name: Run pre-commit hooks
       uses: pre-commit/action@v3.0.1
-    - name: pre-commit.ci lite
+    - name: Run pre-commit-ci-lite
       uses: pre-commit-ci/lite-action@v1.1.0
       if: success() || failure()
   packages-list:
