@@ -60,6 +60,9 @@ jobs:
     strategy:
       matrix:
         package: ${{ fromJson(needs.packages-list.outputs.packages) }}
+    env:
+      AUR_USERNAME: MH0386
+      AUR_EMAIL: mohamed.hisham.abdelzaher@gmail.com
     steps:
       - name: Checkout repository
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
@@ -87,8 +90,8 @@ jobs:
         uses: KSXGitHub/github-actions-deploy-aur@065b6056b25bdd43830d5a3f01899d0ff7169819  # v2.6.0
         if: steps.commit.outputs.changes_detected == 'true'
         with:
-          pkgname: ${{ env.pkgbuild }}
-          pkgbuild: ${{ env.pkgbuild }}/PKGBUILD
-          commit_username: ${{ secrets.AUR_USERNAME }}
-          commit_email: ${{ secrets.AUR_EMAIL }}
+          pkgname: ${{ matrix.package }}
+          pkgbuild: packages/${{ matrix.package }}/PKGBUILD
+          commit_username: ${{ vars.AUR_USERNAME }}
+          commit_email: ${{ vars.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
