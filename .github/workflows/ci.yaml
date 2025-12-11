@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   aur:
-    name: Bump in your AUR packages
+    name: Bump AUR packages
     runs-on: ubuntu-latest
     environment: AUR
     permissions:
