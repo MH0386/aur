@@ -28,9 +28,9 @@ jobs:
         python-version: 3.x        
     - name: Download actionlint
       id: get_actionlint
-      run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-    - name: Add actionlint to PATH
-      run: echo "${{ steps.get_actionlint.outputs.executable }}" >> $GITHUB_PATH
+      run: |
+        bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+        echo "${{ steps.get_actionlint.outputs.executable }}" >> $GITHUB_PATH
     - name: Run pre-commit hooks
       uses: pre-commit/action@v3.0.1
       continue-on-error: true
