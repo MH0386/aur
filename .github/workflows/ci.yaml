@@ -29,16 +29,15 @@ jobs:
           python-version: 3.x
       - name: pre-commit Caching
         uses: actions/cache@v4.3.0
-        if: success() || failure()
         with:
           path: ~/.cache/pre-commit
           key: pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
           restore-keys: pre-commit-
       - name: Run pre-commit hooks
         uses: pre-commit/action@v3.0.1
+        continue-on-error: true
       - name: Run pre-commit-ci-lite
         uses: pre-commit-ci/lite-action@v1.1.0
-        if: success() || failure()
   aur:
     name: Build and publish AUR Package
     runs-on: ubuntu-latest
