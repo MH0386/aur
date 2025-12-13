@@ -51,6 +51,17 @@ jobs:
         with:
           dir_names: true
       - run: echo "Changed packages ${{ steps.changed.outputs.modified_files }}"
+      - name: Get packages to build
+        id: package
+        run: |
+          # ${{ steps.changed.outputs.modified_files }}, e.g. ". .github/workflows packages/cagent-bin"
+          for dir in ${{ steps.changed.outputs.modified_files }}; do
+            if [[ "$dir" == packages/* ]]; then
+              pkg=$(echo "$dir" | cut -d'/' -f2)
+              echo "package=$pkg" >> $GITHUB_OUTPUT
+            fi
+          done
+      - run: echo "Packages to build ${{ steps.package.outputs.package }}"
       - name: Validate and update package
         uses: heyhusen/archlinux-package-action@v2.4.0
         if: steps.changed.outputs.any_changed == 'true'
