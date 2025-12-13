@@ -51,7 +51,7 @@ jobs:
         with:
           filters: |
             pkg: packages/**
-      - run: echo "Changed packages ${{ steps.changed.outputs.changes }}"
+      - run: echo "Changed packages ${{ steps.changed.outputs.pkg_files }}"
       - name: Validate and update package
         uses: heyhusen/archlinux-package-action@v2.4.0
         if: steps.changed.outputs.any_changed == 'true'
