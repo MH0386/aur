@@ -51,7 +51,7 @@ jobs:
         with:
           list-files: shell
           filters: |
-            pkg: 
+            pkg:
               - modified: packages/**
       - run: echo "Changed packages ${{ steps.changed.outputs.pkg_files }}"
       - name: Validate and update package
