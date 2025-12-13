@@ -50,7 +50,8 @@ jobs:
         uses: dorny/paths-filter@v3.0.2
         with:
           filters: |
-            pkg: packages/**
+            pkg: 
+              - packages/**
       - run: echo "Changed packages ${{ steps.changed.outputs.pkg_files }}"
       - name: Validate and update package
         uses: heyhusen/archlinux-package-action@v2.4.0
