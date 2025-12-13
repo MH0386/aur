@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v5.0.0
       - name: Check for changed files
         id: changed
-        uses: tj-actions/changed-files@v47.0.0
+        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
         with:
           dir_names: true
       - name: Get the package to build
