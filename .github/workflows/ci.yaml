@@ -25,13 +25,10 @@ jobs:
           echo "Folders without base path: ${{ steps.packages.outputs.folders_no_base_path }}"
           echo "Folders by path: ${{ steps.packages.outputs.folders_by_path }}"
   aur:
-    name: ${{ matrix.package }}
+    name: Build and publish AUR Package
     needs: packages-list
     runs-on: ubuntu-latest
-    environment: ${{ matrix.package }}
-    strategy:
-      matrix:
-        package: ${{ fromJson(needs.packages-list.outputs.packages) }}
+    environment: AUR
     permissions:
       contents: write
       pull-requests: write
@@ -41,16 +38,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5.0.0
-      - name: Check for ${{ matrix.package }} changed files
+      - name: Check for changed files
         id: changed
-        uses: tj-actions/changed-files@v47.0.1
+        uses: dorny/paths-filter@v3.0.2
         with:
-          files: packages/${{ matrix.package }}/**
-      - name: Validate and update ${{ matrix.package }} package
+          filters: |
+            package:
+              - 'packages/**'
+      - run: echo "Changed packages ${{ steps.changed.outputs.package }}"
+      - name: Validate and update package
         uses: heyhusen/archlinux-package-action@v2.4.0
         if: steps.changed.outputs.any_changed == 'true'
         with:
-          path: packages/${{ matrix.package }}
+          path: packages/
           pkgrel: ${{ github.actor == 'renovate[bot]' && '1' || '' }}
           srcinfo: true
           updpkgsums: true
