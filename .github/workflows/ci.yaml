@@ -71,16 +71,16 @@ jobs:
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
-          file_pattern: packages/${{ matrix.package }}/*
-          commit_message: 'ci: Update ${{ matrix.package }} package files'
+          file_pattern: packages/${{ steps.package.outputs.package }}/*
+          commit_message: 'ci: Update ${{ steps.package.outputs.package }} package files'
       - name: Publish package
         uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
         with:
-          pkgname: ${{ matrix.package }}
-          pkgbuild: packages/${{ matrix.package }}/PKGBUILD
+          pkgname: ${{ steps.package.outputs.package }}
+          pkgbuild: packages/${{ steps.package.outputs.package }}/PKGBUILD
           commit_username: ${{ env.AUR_USERNAME }}
           commit_email: ${{ env.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
-          commit_message: Update ${{ matrix.package }}
+          commit_message: Update ${{ steps.package.outputs.package }}
           updpkgsums: true
           test: true
