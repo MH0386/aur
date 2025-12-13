@@ -22,16 +22,16 @@ jobs:
       YAMLFIX_SEQUENCE_STYLE: block_style
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Setup Python
-        uses: actions/setup-python@v6.1.0
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
         with:
           python-version: 3.x
       - name: Run pre-commit hooks
-        uses: pre-commit/action@v3.0.1
+        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
         continue-on-error: true
       - name: Run pre-commit-ci-lite
-        uses: pre-commit-ci/lite-action@v1.1.0
+        uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
   aur:
     name: Build and publish AUR Package
     runs-on: ubuntu-latest
@@ -44,10 +44,10 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Check for changed files
         id: changed
-        uses: tj-actions/changed-files@v47.0.1
+        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
         with:
           dir_names: true
       - name: Get the package to build
@@ -60,7 +60,7 @@ jobs:
             fi
           done
       - name: Validate and update package
-        uses: heyhusen/archlinux-package-action@v2.4.0
+        uses: heyhusen/archlinux-package-action@04303ce8da27317c34f00ea0a2c61ee0eed65ee3 # v2.4.0
         if: steps.package.outputs.package != ''
         with:
           path: packages/${{ steps.package.outputs.package }}
@@ -68,14 +68,14 @@ jobs:
           srcinfo: true
           updpkgsums: true
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+        uses: stefanzweifel/git-auto-commit-action@28e16e81777b558cc906c8750092100bbb34c5e3 # v7.0.0
         if: steps.package.outputs.package != ''
         with:
           file_pattern: packages/${{ steps.package.outputs.package }}/*
           commit_message: >
             'ci: Update ${{ steps.package.outputs.package }} package files'
       - name: Publish package
-        uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
+        uses: KSXGitHub/github-actions-deploy-aur@2ac5a4c1d7035885d46b10e3193393be8460b6f1 # v4.1.1
         if: steps.package.outputs.package != ''
         env:
           AUR_USERNAME: MH0386
