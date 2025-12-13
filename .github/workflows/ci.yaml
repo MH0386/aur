@@ -22,15 +22,15 @@ jobs:
       YAMLFIX_SEQUENCE_STYLE: block_style
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.3.1
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: Setup Python
         uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c  # v4.9.1
         with:
           python-version: 3.x
       - name: Run pre-commit hooks
-        uses: pre-commit/action@v3.0.1
+        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
       - name: Run pre-commit-ci-lite
-        uses: pre-commit-ci/lite-action@v1.1.0
+        uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
         if: success() || failure()
   packages-list:
     name: Get Packages List
@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
       - name: Get Packages List
         id: packages
-        uses: Drafteame/list-folders-action@1.1.2
+        uses: Drafteame/list-folders-action@67983abeed615d5e3b776d2276bcb2d06a925fd0 # 1.1.2
         with:
           paths: packages
       - name: Output
@@ -68,11 +68,11 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
       - name: Check for ${{ matrix.package }} changed files
         id: changed
-        uses: tj-actions/changed-files@v47.0.1
+        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
         with:
           files: packages/${{ matrix.package }}/**
       - name: Validate and update ${{ matrix.package }} package
-        uses: heyhusen/archlinux-package-action@v2.4.0
+        uses: heyhusen/archlinux-package-action@04303ce8da27317c34f00ea0a2c61ee0eed65ee3 # v2.4.0
         if: steps.changed.outputs.any_changed == 'true'
         with:
           path: packages/${{ matrix.package }}
@@ -81,12 +81,12 @@ jobs:
           updpkgsums: true
           aur: true
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+        uses: stefanzweifel/git-auto-commit-action@28e16e81777b558cc906c8750092100bbb34c5e3 # v7.0.0
         with:
           file_pattern: packages/${{ matrix.package }}/*
           commit_message: 'ci: Update ${{ matrix.package }} package files'
       - name: Publish package
-        uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
+        uses: KSXGitHub/github-actions-deploy-aur@2ac5a4c1d7035885d46b10e3193393be8460b6f1 # v4.1.1
         with:
           pkgname: ${{ matrix.package }}
           pkgbuild: packages/${{ matrix.package }}/PKGBUILD
