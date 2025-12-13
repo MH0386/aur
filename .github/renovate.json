@@ -1,5 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "extractVersionTemplate": "^v?(?<version>.*)$",
+      "managerFilePatterns": [
+        "/(^|/)PKGBUILD$/"
+      ],
+      "matchStrings": [
+        "pkgver=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*) depName=(?<depName>.*)"
+      ]
+    }
+  ],
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
     "config:best-practices"
@@ -10,15 +22,5 @@
     "labels": [
       "pre-commit"
     ]
-  },
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)PKGBUILD$/"],
-      "matchStrings": [
-        "pkgver=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*) depName=(?<depName>.*)"
-      ],
-      "extractVersionTemplate": "^v?(?<version>.*)$"
-    }
-  ]
+  }
 }
