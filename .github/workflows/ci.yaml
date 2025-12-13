@@ -50,7 +50,6 @@ jobs:
         uses: tj-actions/changed-files@v47.0.0
         with:
           dir_names: true
-      - run: echo "Changed packages ${{ steps.changed.outputs.modified_files }}"
       - name: Get packages to build
         id: package
         run: |
