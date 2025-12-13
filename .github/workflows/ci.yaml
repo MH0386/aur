@@ -50,7 +50,7 @@ jobs:
         uses: tj-actions/changed-files@v47.0.0
         with:
           dir_names: true
-      - name: Get packages to build
+      - name: Get the package to build
         id: package
         run: |
           for dir in ${{ steps.changed.outputs.modified_files }}; do
@@ -72,8 +72,7 @@ jobs:
         if: steps.package.outputs.package != ''
         with:
           file_pattern: packages/${{ steps.package.outputs.package }}/*
-          commit_message: 'ci: Update ${{ steps.package.outputs.package }} package
-            files'
+          commit_message: 'ci: Update ${{ steps.package.outputs.package }} package files'
       - name: Publish package
         uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
         if: steps.package.outputs.package != ''
