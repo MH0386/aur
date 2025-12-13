@@ -49,6 +49,7 @@ jobs:
         id: changed
         uses: dorny/paths-filter@v3.0.2
         with:
+          list-files: shell
           filters: |
             pkg: 
               - modified: packages/**
