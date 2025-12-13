@@ -74,6 +74,9 @@ jobs:
           commit_message: 'ci: Update ${{ steps.package.outputs.package }} package files'
       - name: Publish package
         uses: KSXGitHub/github-actions-deploy-aur@v4.1.1
+        env:
+          AUR_USERNAME: MH0386
+          AUR_EMAIL: mohamed.hisham.abdelzaher@gmail.com
         with:
           pkgname: ${{ steps.package.outputs.package }}
           pkgbuild: packages/${{ steps.package.outputs.package }}/PKGBUILD
