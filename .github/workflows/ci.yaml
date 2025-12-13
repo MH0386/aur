@@ -22,7 +22,7 @@ jobs:
       YAMLFIX_SEQUENCE_STYLE: block_style
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.3.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Setup Python
         uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c  # v4.9.1
         with:
@@ -40,7 +40,7 @@ jobs:
       packages: ${{ steps.packages.outputs.folders_no_base_path }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
       - name: Get Packages List
         id: packages
         uses: Drafteame/list-folders-action@1.1.2
@@ -65,7 +65,7 @@ jobs:
       AUR_EMAIL: mohamed.hisham.abdelzaher@gmail.com
     steps:
       - name: Checkout repository
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
       - name: Check for ${{ matrix.package }} changed files
         id: changed
         uses: tj-actions/changed-files@v47.0.1
