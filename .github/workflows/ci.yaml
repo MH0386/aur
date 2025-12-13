@@ -5,28 +5,8 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
-  packages-list:
-    name: Get Packages List
-    runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.packages.outputs.folders_no_base_path }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5.0.0
-      - name: Get Packages List
-        id: packages
-        uses: Drafteame/list-folders-action@1.1.2
-        with:
-          paths: packages
-      - name: Output
-        run: |
-          echo "Total sub-folders: ${{ steps.packages.outputs.total }}"
-          echo "Folders with base path: ${{ steps.packages.outputs.folders }}"
-          echo "Folders without base path: ${{ steps.packages.outputs.folders_no_base_path }}"
-          echo "Folders by path: ${{ steps.packages.outputs.folders_by_path }}"
   aur:
     name: Build and publish AUR Package
-    needs: packages-list
     runs-on: ubuntu-latest
     environment: AUR
     permissions:
