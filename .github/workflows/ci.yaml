@@ -29,7 +29,8 @@ jobs:
         with:
           python-version: 3.x
       - name: Restore pre-commit cache
-        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1        
+        id: cache-restore
         with:
           path: ~/.cache/pre-commit
           key: pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
@@ -38,10 +39,10 @@ jobs:
         uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
       - name: Save pre-commit cache
         uses: actions/cache/save@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        if: always() && steps.cache-prime-numbers-restore.outputs.cache-hit != 'true'
+        if: always() && steps.cache-restore.outputs.cache-hit != 'true'
         with:
           path: ~/.cache/pre-commit
-          key: pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Run pre-commit-ci-lite
         uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
         if: always()
