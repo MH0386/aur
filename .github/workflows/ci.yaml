@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Restore pre-commit cache
-        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1        
+        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         id: cache-restore
         with:
           path: ~/.cache/pre-commit
