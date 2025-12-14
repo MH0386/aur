@@ -53,10 +53,10 @@ jobs:
       - name: Get the package to build
         id: package
         run: |
-          for dir in ${{ steps.changed.outputs.modified_files }}; do
-            if [[ "$dir" == packages/* ]]; then
+          for dir in "${{ steps.changed.outputs.modified_files }}"; do
+            if [[ "$dir" == "packages/*" ]]; then
               pkg=$(echo "$dir" | cut -d'/' -f2)
-              echo "package=$pkg" >> $GITHUB_OUTPUT
+              echo "package=$pkg" >> "$GITHUB_OUTPUT"
             fi
           done
       - name: Validate and update package
