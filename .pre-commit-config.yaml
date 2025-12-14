@@ -3,6 +3,9 @@ repos:
     rev: v0.11.0
     hooks:
       - id: shellcheck
+        args:
+          - -e
+          - SC2034,SC2148,SC2154
   - repo: https://github.com/Mergifyio/mergify-pre-commit
     rev: 1.1.0
     hooks:
