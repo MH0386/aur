@@ -68,6 +68,7 @@ queue_rules:
     queue_conditions:
       - and:
           - 'check-success = DeepSource: Secrets'
+          - 'check-success = DeepSource: Shell'
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
