@@ -46,7 +46,7 @@ repos:
         args:
           - --strict
   - repo: https://github.com/lyz-code/yamlfix
-    rev: 1.19.0
+    rev: 1.19.1
     hooks:
       - id: yamlfix
   - repo: https://github.com/rhysd/actionlint
