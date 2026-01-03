@@ -66,4 +66,3 @@ jobs:
           su - builder -c "paru -Syu --needed --noconfirm pacman-contrib namcap git devtools bumper-bin yq"
       - run: git config --global --add safe.directory '*'
       - run: su - builder -c "bumper $(pwd)/packages/"
- 
