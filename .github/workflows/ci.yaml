@@ -44,8 +44,8 @@ jobs:
       contents: write
     container: cachyos/cachyos:latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
       - name: Create build user and setup permissions
         run: |
           useradd -m -s /bin/bash builder
