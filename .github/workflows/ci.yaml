@@ -73,4 +73,5 @@ jobs:
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
-      - run: su - builder -c "bumper $(pwd)/packages/"
+      - name: Run Bumper
+        run: su - builder -c "bumper $(pwd)/packages/"
