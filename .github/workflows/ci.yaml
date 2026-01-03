@@ -42,6 +42,7 @@ jobs:
     environment: AUR
     permissions:
       contents: write
+    if: github.event_name == 'pull_request'
     container: cachyos/cachyos:latest
     steps:
       - name: Checkout repository
