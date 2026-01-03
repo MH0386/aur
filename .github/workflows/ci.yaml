@@ -1,9 +1,17 @@
 name: CI
 on:
   push:
-    branches: main
+    branches:
+      - main
   pull_request:
   workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+  deployments: write
+  security-events: write
+  actions: read
 jobs:
   pre-commit:
     name: pre-commit
