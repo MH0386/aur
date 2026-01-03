@@ -74,4 +74,4 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
       - name: Run Bumper
-        run: su - builder -c "bumper $(pwd)/packages/"
+        run: su - builder -c "bumper $(pwd)/packages/ --debug"
