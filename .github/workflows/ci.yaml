@@ -55,10 +55,6 @@ jobs:
     if: github.event_name == 'pull_request'
     container: cachyos/cachyos:latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6.0.1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - name: Create build user and setup permissions
         run: |
           useradd -m -s /bin/bash builder
@@ -73,6 +69,10 @@ jobs:
           git config --global --add safe.directory '*'
           git config --global user.name "Mohamed Hisham Abdelzaher"
           git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - name: Setup SSH Agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
