@@ -52,6 +52,11 @@ jobs:
     environment: AUR
     permissions:
       contents: write
+      pull-requests: write
+      checks: write
+      deployments: write
+      security-events: write
+      actions: read
     if: github.event_name == 'pull_request'
     container: cachyos/cachyos:latest
     steps:
