@@ -13,10 +13,10 @@ permissions:
   security-events: write
   actions: read
 jobs:
-  pre-commit:
+  prek:
     name: prek
     runs-on: ubuntu-latest
-    environment: pre-commit
+    environment: prek
     env:
       YAMLFIX_EXPLICIT_START: false
       YAMLFIX_SEQUENCE_STYLE: block_style

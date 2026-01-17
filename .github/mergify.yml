@@ -18,5 +18,5 @@ queue_rules:
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
-          - check-success = pre-commit
+          - check-success = prek
           - check-success = Build and publish AUR Package
