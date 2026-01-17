@@ -26,8 +26,6 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - name: Setup UV
-        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
       - name: Restore prek cache
         uses: actions/cache/restore@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         id: cache-restore
