@@ -3,7 +3,7 @@ pull_request_rules:
   - name: Automatically queue valid Bot PRs
     conditions:
       - author != MH0386
-      - check-success = pre-commit
+      - check-success = prek
     actions:
       queue:
 queue_rules:
@@ -18,5 +18,4 @@ queue_rules:
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
-          - check-success = prek
           - check-success = Build and publish AUR Package
