@@ -2,7 +2,7 @@
 
 pkgname=dagger-bin
 pkgdesc="Automation engine to build, test and ship any codebase. Runs locally, in CI, or directly in the cloud"
-pkgver=0.19.9 # renovate: datasource=github-tags depName=dagger/dagger
+pkgver=0.19.10 # renovate: datasource=github-tags depName=dagger/dagger
 pkgrel=1
 arch=('x86_64' 'aarch64' 'armv7h')
 url="https://github.com/dagger/dagger"
