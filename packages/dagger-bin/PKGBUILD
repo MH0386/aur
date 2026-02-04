@@ -16,9 +16,9 @@ source_aarch64=("https://github.com/dagger/dagger/releases/download/v${pkgver}/d
 source_armv7h=("https://github.com/dagger/dagger/releases/download/v${pkgver}/dagger_v${pkgver}_linux_armv7.tar.gz")
 source=("LICENSE::https://raw.githubusercontent.com/dagger/dagger/v${pkgver}/LICENSE")
 sha256sums=('4442a42853bd02d190ce5f06f76ba62f1a0ff803e8cc1a524dcaa7085a0b100b')
-sha256sums_x86_64=('02e5e979f74504e0080a6dae9db717cc000429794c10d429b8a4677a52dd5939')
-sha256sums_aarch64=('f1c3c6a5f208fce3a1b1d4cd83478a2c4b2e27126e269011619d5a82a5fb3886')
-sha256sums_armv7h=('6e14b9c25119689ebeaa28bb4fdc1f96a9df981f936f553d93fd1de20f11b3f5')
+sha256sums_x86_64=('3c9dfb11e8df8a21133843789a9dc9c9477176e45ebf00442a38bcf9cba4920a')
+sha256sums_aarch64=('2e505f6d1c5985a00d6c6a3a126761c4bfb5ba128186565921ac402520bad8c6')
+sha256sums_armv7h=('750c44787b995fe6cbbf799af45fa4c46fe4e65c5978ee7ea01d5ffde3946e30')
 
 package() {
   install -Dm755 "${srcdir}/dagger" "${pkgdir}/usr/bin/dagger"
