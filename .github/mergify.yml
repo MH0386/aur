@@ -16,3 +16,11 @@ queue_rules:
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
           - check-success = Build and publish AUR Package
+merge_queue:
+  mode: parallel
+scopes:
+  source:
+    files:
+      CI:
+        include:
+          - .github/workflows/*
