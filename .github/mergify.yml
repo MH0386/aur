@@ -1,13 +1,4 @@
 extends: MH0386
-pull_request_rules:
-  - name: Automatically queue valid Bot PRs
-    conditions:
-      - author != MH0386
-      - and:
-          - check-success = prek
-          - check-success = Build and publish AUR Package
-    actions:
-      queue:
 queue_rules:
   - name: default
     queue_conditions:
