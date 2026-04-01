@@ -12,17 +12,3 @@ queue_rules:
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
     autoqueue: true
-merge_queue:
-  mode: parallel
-scopes:
-  source:
-    files:
-      CI:
-        include:
-          - .github/workflows/*
-      AUR:
-        include:
-          - packages/*/PKGBUILD
-      pre-commit:
-        include:
-          - .pre-commit-config.yaml
