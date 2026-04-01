@@ -3,6 +3,7 @@ queue_rules:
   - name: default
     queue_conditions:
       - and:
+          - author != MH0386
           - check-success = Build and publish AUR Package
           - check-success = prek
           - 'check-success = DeepSource: Secrets'
