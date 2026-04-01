@@ -18,6 +18,7 @@ queue_rules:
           - check-success = Build and publish AUR Package
 merge_queue:
   mode: parallel
+  skip_intermediate_results: true
 scopes:
   source:
     files:
