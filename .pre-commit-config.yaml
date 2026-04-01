@@ -57,6 +57,6 @@ repos:
       - id: actionlint
         exclude: \.lock\.ya?ml$
   - repo: https://github.com/trufflesecurity/trufflehog
-    rev: v3.94.0
+    rev: v3.94.1
     hooks:
       - id: trufflehog
