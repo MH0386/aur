@@ -12,11 +12,14 @@ queue_rules:
   - name: default
     queue_conditions:
       - and:
-          - 'check-success = DeepSource: Secrets'
-          - 'check-success = DeepSource: Shell'
+          - check-success = Build and publish AUR Package
+          - check-success = prek
+          - "check-success = DeepSource: Secrets"
+          - "check-success = DeepSource: Shell"
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
+    autoqueue: true
 merge_queue:
   mode: parallel
 scopes:
