@@ -17,10 +17,5 @@
     "config:best-practices"
   ],
   "osvVulnerabilityAlerts": true,
-  "pre-commit": {
-    "enabled": true,
-    "labels": [
-      "pre-commit"
-    ]
-  }
+  "pre-commit": {   "enabled": true  }
 }
