@@ -10,7 +10,7 @@ license=('custom:Proprietary')
 provides=('sbx')
 conflicts=('sbx')
 source=("docker-sandbox::${url}/releases/download/v${pkgver}/DockerSandboxes-linux.tar.gz")
-sha256sums=('59d50820306dc6f1e9fd1ad20977a0438478be1f25f3c3f59a464d63ec2c4d82')
+sha256sums=('63a444a830dea3ebe2c98b71868fb5941fdb2940a22f35a785e6737ee305ba09')
 
 package() {
   install -Dm755 "${srcdir}/docker-sbx/sbx" "${pkgdir}/usr/bin/sbx"
