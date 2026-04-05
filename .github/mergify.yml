@@ -6,11 +6,18 @@ queue_rules:
           - author != MH0386
           - check-success = Build and publish AUR Package
           - check-success = prek
-          - 'check-success = DeepSource: Secrets'
-          - 'check-success = DeepSource: Shell'
+          - "check-success = DeepSource: Secrets"
+          - "check-success = DeepSource: Shell"
           - check-success = CodeFactor
           - check-success = GitGuardian Security Checks
           - check-success = CodeQL
     autoqueue: true
 merge_protections_settings:
   reporting_method: check-runs
+merge_protections:
+  - name: Do not merge outdated PRs
+    description: Make sure PRs are almost up to date before merging
+    if:
+      - base = main
+    success_conditions:
+      - "#commits-behind <= 10"
