@@ -16,7 +16,7 @@ jobs:
   prek:
     name: prek
     runs-on: ubuntu-latest
-    environment: prek
+    environment: pre-commit
     env:
       YAMLFIX_EXPLICIT_START: false
       YAMLFIX_SEQUENCE_STYLE: block_style
