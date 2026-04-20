@@ -2,7 +2,7 @@
 
 pkgname=docker-sandbox-bin
 pkgdesc="Docker Sandboxes run AI coding agents in isolated microVM sandboxes"
-pkgver=0.26.1 # renovate: datasource=github-tags depName=docker/sbx-releases
+pkgver=0.27.0 # renovate: datasource=github-tags depName=docker/sbx-releases
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/docker/sbx-releases"
