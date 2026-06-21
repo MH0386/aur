@@ -64,7 +64,7 @@ jobs:
             fi
           done
       - name: Validate and update package
-        uses: heyhusen/archlinux-package-action@c9f94059ccbebe8710d31d582f33ef4e84fe575c # v3.0.0
+        uses: heyhusen/archlinux-package-action@3f7aaada28c782497bfe02d6d6ea365b25fdea12 # v3.0.1
         if: steps.package.outputs.package != ''
         with:
           path: packages/${{ steps.package.outputs.package }}
