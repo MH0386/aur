@@ -29,7 +29,7 @@ jobs:
       - name: Run prek hooks
         uses: j178/prek-action@bdca6f102f98e2b4c7029491a53dfd366469e33d # v2.0.4
       - name: Commit prek changes
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         if: success() || failure()
         with:
           commit_message: 'prek: Apply fixes'
@@ -72,7 +72,7 @@ jobs:
           srcinfo: true
           updpkgsums: true
       - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         if: steps.package.outputs.package != ''
         with:
           file_pattern: packages/${{ steps.package.outputs.package }}/*
