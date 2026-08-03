@@ -13,8 +13,8 @@ source_x86_64=("docker-agent::https://github.com/docker/docker-agent/releases/do
 source_aarch64=("docker-agent::https://github.com/docker/docker-agent/releases/download/v${pkgver}/docker-agent-linux-arm64")
 source=("LICENSE::https://raw.githubusercontent.com/docker/docker-agent/v${pkgver}/LICENSE")
 sha256sums=('58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd')
-sha256sums_x86_64=('810280bc9de172f958f0aa76f0994d59fe92a1ca81191a59d493c8c196cae9d1')
-sha256sums_aarch64=('810280bc9de172f958f0aa76f0994d59fe92a1ca81191a59d493c8c196cae9d1')
+sha256sums_x86_64=('b60d7017e4c704e5d3204d4c949a8c8d98029afdddaf80f71a0be329439a5f67')
+sha256sums_aarch64=('b60d7017e4c704e5d3204d4c949a8c8d98029afdddaf80f71a0be329439a5f67')
 noextract=('docker-agent')
 
 package() {
